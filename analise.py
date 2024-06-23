@@ -18,7 +18,8 @@ while True:
 1 - cadastrar usuários
 2 - listar usuários
 3 - sair
-'''))
+
+ '''))
     
     if op == 1:
 
@@ -26,11 +27,26 @@ while True:
         login_1 = input('Digite sua senha: ')
         login_2 = input('Confirme sua senha: ')
 
-        if login_2 == login_1:
+        if login_2 != login_1:
 
             comando = f'INSERT INTO usuarios_cad (nome, senha)  VALUES ("{usuario}", "{login_2}")'
 
             cursor.execute(comando)
+
+            print('''========================
+                  
+Usuario e senha cadastrados com sucesso!
+
+========================''')
+
+
+        else: 
+
+            print('''========================
+                  
+Senhas não correspondem!
+
+========================''')
 
     if op == 2:
 
